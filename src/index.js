@@ -20,6 +20,7 @@ app.post('/users', (request, response) => {
 
 app.get('/todos', checksExistsUserAccount, (request, response) => {
   // Complete aqui
+  return response.json({ message: "Hello World!"});
 });
 
 app.post('/todos', checksExistsUserAccount, (request, response) => {

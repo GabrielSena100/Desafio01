@@ -119,6 +119,10 @@ app.post('/todos', checksExistsUserAccount, (request, response) => {
 
   user.todos.push(newTodo);
 
+  //const todoCreated = user.todos.find((todos) => {
+  //  return todos.deadline === new Date(deadline).ToDateString();
+  //});
+
   return response.status(201).send(newTodo);
 });
 
@@ -148,7 +152,7 @@ app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
 
   user.todos.push(todoToChange);
 
-  return response.status(201).json(user.todos);
+  return response.status(201).json(todoToChange);
 
 
 });
@@ -176,7 +180,7 @@ app.patch('/todos/:id/done', checksExistsUserAccount, (request, response) => {
   user.todos.splice(indexTodoToChange,1);
   user.todos.push(todoToChange);
 
-  return response.status(201).json(user.todos);
+  return response.status(201).json(todoToChange);
 
 });
 
@@ -200,7 +204,7 @@ app.delete('/todos/:id', checksExistsUserAccount, (request, response) => {
 
   user.todos.splice(indexTodoToDelete, 1);
 
-  return response.status(201).json(user.todos);
+  return response.status(204).json(user.todos);
 
 });
 
